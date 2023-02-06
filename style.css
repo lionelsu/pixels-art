@@ -31,6 +31,7 @@ main {
 
 #color-palette {
   display: flex;
+  align-items: center;
   flex-direction: row;
 }
 
@@ -55,4 +56,15 @@ main {
 
 .color:nth-child( 4 ) {
   background: blue;
+}
+
+#button-random-color {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 10rem;
+  height: 10rem;
+  background: cyan;
+  border-radius: 5rem;
+  cursor: pointer;
 }
