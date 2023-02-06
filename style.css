@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  /* variáveis devem ser colocadas aqui */
+}
+
+html {
+  scroll-behavior: smooth;
+
+  /* scroll-padding-top: 5.0rem; */
+
+  /* scroll padding é opcional */
+}
+
+body {
+  font-size: 1.6rem;
+}
