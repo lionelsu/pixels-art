@@ -67,4 +67,5 @@ main {
   background: cyan;
   border-radius: 5rem;
   cursor: pointer;
+  user-select: none;
 }
