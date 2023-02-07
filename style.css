@@ -32,7 +32,6 @@ main {
 #color-palette {
   display: flex;
   align-items: center;
-  flex-direction: row;
 }
 
 .color {
@@ -40,6 +39,7 @@ main {
   height: 4rem;
   margin: 0.8rem;
   border: 0.1rem solid black;
+  cursor: pointer;
 }
 
 .color:nth-child( 1 ) {
@@ -81,4 +81,5 @@ main {
   margin: 0.8rem;
   background: white;
   border: 0.1rem solid black;
+  cursor: pointer;
 }
