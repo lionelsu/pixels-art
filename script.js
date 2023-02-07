@@ -1,4 +1,5 @@
 const paleta = document.querySelectorAll('.color');
+const telaDePixels = document.querySelectorAll('.pixel');
 
 // 8 e 10 - Defina a cor preta e as demais cores como cor inicial da paleta de cores
 function coresPrincipais() {
@@ -10,7 +11,7 @@ function coresPrincipais() {
 }
 
 // 5 - req1: A paleta gerada deve ser salva no localStorage com a chave colorPalette
-function salvarNoLocal() {
+function salvarPaletaLocal() {
   // 5 - req1...
   const listaCores = [];
   for (let i = 0; i < paleta.length; i += 1) {
@@ -40,7 +41,7 @@ function sortearCores() {
   }
 
   // 5 - req1: chamada para salvar
-  salvarNoLocal();
+  salvarPaletaLocal();
 }
 
 const btnAleato = document.querySelector('#button-random-color');
@@ -59,15 +60,34 @@ paleta.forEach((cor) => {
   cor.addEventListener('click', seletorDeCores);
 });
 
-// 10 - Função que permite selecionar cores da paleta e pintar o quadro.
+// 12 - Crie uma função para salvar e recuperar o seu desenho atual no localStorage
 
-const telaDePixels = document.querySelectorAll('.pixel');
+function salvarTelaLocal() {
+  const listaCores = [];
+  for (let i = 0; i < telaDePixels.length; i += 1) {
+    listaCores[i] = telaDePixels[i].style.backgroundColor;
+  }
+
+  const stg = localStorage;
+  stg.setItem('pixelBoard', JSON.stringify(listaCores));
+}
+
+function restaurarTelaLocal() {
+  const restaurarCores = JSON.parse(localStorage.getItem('pixelBoard')) || [];
+
+  for (let i = 0; i < telaDePixels.length; i += 1) {
+    telaDePixels[i].style.backgroundColor = restaurarCores[i];
+  }
+}
+
+// 10 - Função que permite selecionar cores da paleta e pintar o quadro.
 
 function pintarNoQuadro(event) {
   const corSelecionada = document.querySelector('.selected');
   const click = event.target.style;
   if (corSelecionada) {
     click.backgroundColor = corSelecionada.style.backgroundColor;
+    salvarTelaLocal();
   }
 }
 telaDePixels.forEach((cor) => {
@@ -82,6 +102,7 @@ function limparTela() {
     const cores = cor;
     cores.style.backgroundColor = 'white';
   });
+  localStorage.removeItem('pixelBoard');
 }
 botaoDeLimpeza.addEventListener('click', limparTela);
 
@@ -89,4 +110,5 @@ botaoDeLimpeza.addEventListener('click', limparTela);
 window.onload = () => {
   coresPrincipais();
   restaurarNoLocal();
+  restaurarTelaLocal();
 };
