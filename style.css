@@ -27,6 +27,9 @@ body {
 
 main {
   max-width: 136.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #color-palette {
@@ -66,4 +69,18 @@ main {
   background: white;
   border: 0.1rem solid black;
   cursor: pointer;
+}
+
+#clear-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 4rem;
+  margin: 2rem;
+  text-align: center;
+  background: orange;
+  border: 0.1rem solid black;
+  cursor: pointer;
+  user-select: none;
 }

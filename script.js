@@ -74,6 +74,17 @@ telaDePixels.forEach((cor) => {
   cor.addEventListener('click', pintarNoQuadro);
 });
 
+// 11 - Crie um botão que retorne a cor do quadro para a cor inicial.
+
+const botaoDeLimpeza = document.querySelector('#clear-board');
+function limparTela() {
+  telaDePixels.forEach((cor) => {
+    const cores = cor;
+    cores.style.backgroundColor = 'white';
+  });
+}
+botaoDeLimpeza.addEventListener('click', limparTela);
+
 // 5 req2: A paleta gerada deve ser mantida ao recarregar a página.
 window.onload = () => {
   coresPrincipais();
