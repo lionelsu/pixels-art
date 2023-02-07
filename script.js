@@ -5,8 +5,6 @@ function deixaOhPretoPadrao() {
   const preto = 'black';
   if (paleta[0].style.backgroundColor !== preto) {
     paleta[0].style.backgroundColor = preto;
-    // 8 - req 2 fixar cor selected
-    paleta[0].classList.add('selected');
   }
 }
 
@@ -49,12 +47,6 @@ function sortearCores() {
 const btnAleato = document.querySelector('#button-random-color');
 btnAleato.addEventListener('click', sortearCores);
 
-// 5 req2: A paleta gerada deve ser mantida ao recarregar a página.
-window.onload = () => {
-  deixaOhPretoPadrao();
-  restaurarNoLocal();
-};
-
 // 9 - Crie uma função para selecionar uma cor na paleta de cores.
 function seletorDeCores(event) {
   paleta.forEach((cor) => {
@@ -63,6 +55,28 @@ function seletorDeCores(event) {
   });
 }
 
+// 9 - da para iterar sob outros laços, usando este pela legibilidade
 paleta.forEach((cor) => {
   cor.addEventListener('click', seletorDeCores);
 });
+
+// 10 - Função que permite selecionar cores da paleta e pintar o quadro.
+
+const telaDePixels = document.querySelectorAll('.pixel');
+
+function pintarNoQuadro(event) {
+  const corSelecionada = document.querySelector('.selected');
+  const click = event.target.style;
+  if (corSelecionada) {
+    click.backgroundColor = corSelecionada.style.backgroundColor;
+  }
+}
+telaDePixels.forEach((cor) => {
+  cor.addEventListener('click', pintarNoQuadro);
+});
+
+// 5 req2: A paleta gerada deve ser mantida ao recarregar a página.
+window.onload = () => {
+  deixaOhPretoPadrao();
+  restaurarNoLocal();
+};
