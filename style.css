@@ -36,8 +36,8 @@ main {
 }
 
 .color {
-  width: 10rem;
-  height: 10rem;
+  width: 4rem;
+  height: 4rem;
   margin: 0.8rem;
   border: 0.1rem solid black;
 }
@@ -61,11 +61,24 @@ main {
 #button-random-color {
   display: flex;
   align-items: center;
+  font-size: 1rem;
   text-align: center;
-  width: 10rem;
-  height: 10rem;
-  background: cyan;
+  width: 4rem;
+  height: 4rem;
+  background: orange;
   border-radius: 5rem;
   cursor: pointer;
   user-select: none;
+}
+
+#pixel-board {
+  display: flex;
+}
+
+.pixel {
+  width: 4rem;
+  height: 4rem;
+  margin: 0.8rem;
+  background: white;
+  border: 0.1rem solid black;
 }

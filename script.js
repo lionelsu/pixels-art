@@ -38,3 +38,5 @@ btnAleato.addEventListener('click', sortearCores);
 // 5 req 2
 
 window.onload = () => restaurarNoLocal();
+
+// 6
