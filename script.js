@@ -5,7 +5,7 @@ function deixaOhPretoPadrao() {
   const preto = 'black';
   if (paleta[0].style.backgroundColor !== preto) {
     paleta[0].style.backgroundColor = preto;
-    // padronizar a class selected
+    // 8 - req 2 fixar cor selected
     paleta[0].classList.add('selected');
   }
 }
@@ -54,3 +54,15 @@ window.onload = () => {
   deixaOhPretoPadrao();
   restaurarNoLocal();
 };
+
+// 9 - Crie uma função para selecionar uma cor na paleta de cores.
+function seletorDeCores(event) {
+  paleta.forEach((cor) => {
+    cor.classList.remove('selected');
+    event.target.classList.add('selected');
+  });
+}
+
+paleta.forEach((cor) => {
+  cor.addEventListener('click', seletorDeCores);
+});
