@@ -42,22 +42,6 @@ main {
   cursor: pointer;
 }
 
-.color:nth-child( 1 ) {
-  background: black;
-}
-
-.color:nth-child( 2 ) {
-  background: red;
-}
-
-.color:nth-child( 3 ) {
-  background: green;
-}
-
-.color:nth-child( 4 ) {
-  background: blue;
-}
-
 #button-random-color {
   display: flex;
   align-items: center;
